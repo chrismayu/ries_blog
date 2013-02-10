@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
     before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :create, :new]
+  before_filter :is_owner, :only => [:edit, :update, :destory]
+  
+  
   
   # GET /posts
   # GET /posts.json
@@ -83,4 +86,13 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+     def is_owner 
+       post = Post.find(params[:id])
+       unless user_signed_in? && post.user == current_user
+         redirect_to(post, :notice => 'You cannot edit a post that you did not create.')
+       end
+     end
+  
 end
