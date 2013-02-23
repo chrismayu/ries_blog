@@ -5,7 +5,9 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
+ gem 'therubyracer', :platforms => :ruby
+  gem 'less'
+   gem 'commonjs'
 end
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0", :group => :production
@@ -27,6 +29,9 @@ gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "heroku"
+gem 'less-rails'
+gem 'libv8', '~> 3.3.10.4'
+ gem 'twitter-bootstrap-rails'
 
 
 group :development, :test do
